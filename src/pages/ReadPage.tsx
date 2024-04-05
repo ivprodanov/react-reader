@@ -58,10 +58,17 @@ function ReadPage() {
         <SampleTextReader speed={adjustedSpeed}/>
       )
     ) : (
-      <h2>
-        Take the <Link to={"/eval"}>evaluation</Link> first to calculate your
-        reading speed or set it manually below.
-      </h2>
+        !start ? <div className="adjust-self">
+            <h2>
+                Take the <Link to={"/eval"}>evaluation</Link> first to calculate your
+                reading speed or set it manually below.
+            </h2>
+            <button onClick={() => {setAdjustedSpeed(500); localStorage.setItem('duration-average', 500)}}>Speed per word: 500ms</button>
+            <button onClick={() => {setAdjustedSpeed(250); localStorage.setItem('duration-average', 250)}}>Speed per word: 250ms</button>
+            <button className="start-read" onClick={toggleStart}>START</button>
+        </div> : (
+        <SampleTextReader speed={adjustedSpeed}/>
+      )
     )}
   </div>
   );

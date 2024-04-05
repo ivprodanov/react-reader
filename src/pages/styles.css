@@ -84,7 +84,7 @@ body {
 }
 
 .adjust-speed>button,h2{
-    margin: 1rem;
+    margin-bottom: 10px;
     padding: 10px 30px;
 }
 
@@ -116,6 +116,20 @@ body {
     flex-wrap: wrap; /* Ensure buttons wrap to the next line on smaller screens */
 }
 
+.adjust-self  {
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+.adjust-self > button {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 @media screen and (max-width: 768px) {
