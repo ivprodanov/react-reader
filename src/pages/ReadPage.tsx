@@ -65,7 +65,7 @@ function ReadPage() {
             </h2>
             <button onClick={() => {setAdjustedSpeed(500); localStorage.setItem('duration-average', 500)}}>Speed per word: 500ms</button>
             <button onClick={() => {setAdjustedSpeed(250); localStorage.setItem('duration-average', 250)}}>Speed per word: 250ms</button>
-            <button className="start-read" onClick={toggleStart}>START</button>
+            <button disabled={!adjustedSpeed} className="start-read" onClick={toggleStart}>START</button>
         </div> : (
         <SampleTextReader speed={adjustedSpeed}/>
       )
