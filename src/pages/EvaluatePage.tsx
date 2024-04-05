@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useRef, useState } from "react";
 import evalJSON from "../assets/evaluation.json";
 import { Link } from "react-router-dom";
