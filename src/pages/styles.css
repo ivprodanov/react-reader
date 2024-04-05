@@ -19,12 +19,12 @@ body {
     margin: 2rem;
 }
 
-.buttons-container {
+/* .buttons-container {
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .evaluation-page{
     width: 100vw;
 }
@@ -106,4 +106,22 @@ body {
     background-color: rgb(58, 97, 100);
     color: white;
     font-size: 2rem;
+}
+
+.buttons-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure buttons wrap to the next line on smaller screens */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .buttons-container {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        align-items: center; /* Center-align buttons */
+    }
+
 }
