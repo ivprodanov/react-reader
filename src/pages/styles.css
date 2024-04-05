@@ -1,0 +1,109 @@
+body {
+    background-color: rgb(14, 27, 41);
+    color: rgb(207, 207, 207);
+}
+
+
+.header {
+    background-color: rgba(29, 81, 90, 0.568);
+    top: 0;
+    text-align: center;
+    width: 100vw;
+    position: absolute;
+}
+
+.homepage-button-eval, .homepage-button-read {
+    padding: 10px 40px;
+    color: whitesmoke;
+    background-color: rgb(29, 81, 90);
+    margin: 2rem;
+}
+
+.buttons-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.evaluation-page{
+    width: 100vw;
+}
+
+.evaluate-heading {
+    width: 100vw;
+    text-align: center;
+}
+
+.evaluate-instructions {
+    text-align: center;
+    width: 100vw;
+}
+
+.start-button {
+    background-color: rgb(43, 117, 43);
+    color: white;
+    padding: 10px 40px;
+    font-size: xx-large;
+}
+
+.words-evaluation {
+    text-align: center;
+    cursor: pointer;
+    padding: 20px 40px;
+    background-color: rgb(29, 81, 90);
+}
+
+.all-clicked {
+    text-align: center;
+    padding: 20px 40px;
+    background-color: rgb(29, 90, 59);
+    font-size: xx-large;
+}
+
+.read-page-container {
+    width: 100vw;
+}
+
+.adjust-controls {
+    text-align: center;
+}
+
+.faster {
+    background-color: rgb(33, 83, 33);
+    color: white;
+}
+
+.slower  {
+    background-color: rgb(105, 19, 19);
+    color: white;
+}
+
+.adjust-speed {
+    display: flex;
+    justify-content: center;
+}
+
+.adjust-speed>button,h2{
+    margin: 1rem;
+    padding: 10px 30px;
+}
+
+.start-read {
+    padding: 10px 10%;
+}
+
+.text-display { 
+    background-color: white;
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.next-text {
+    display: block;
+    margin: 2rem auto;
+    padding: 20px 30%;
+    background-color: rgb(58, 97, 100);
+    color: white;
+    font-size: 2rem;
+}
