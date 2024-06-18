@@ -1,15 +1,21 @@
-// @ts-nocheck
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import evalJSON from "../assets/evaluation.json";
 import { Link } from "react-router-dom";
 
-function EvaluatePage() {
-  const [start, setStart] = useState(false);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [allWordsClicked, setAllWordsClicked] = useState(false);
-  const [wordData, setWordData] = useState([]);
-  const [startTime, setStartTime] = useState(null);
-  const [average, setAverage] = useState();
+interface WordInfo {
+  word: string;
+  index: number;
+  length: number;
+  duration: number;
+}
+
+const EvaluatePage: React.FC = () => {
+  const [start, setStart] = useState<boolean>(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
+  const [allWordsClicked, setAllWordsClicked] = useState<boolean>(false);
+  const [wordData, setWordData] = useState<WordInfo[]>([]);
+  const [startTime, setStartTime] = useState<number | null>(null);
+  const [average, setAverage] = useState<number | null>(null);
 
   const toggleStart = () => {
     setStart((prev) => !prev);
@@ -23,7 +29,7 @@ function EvaluatePage() {
   }, [currentWordIndex]);
 
   useEffect(() => {
-    if (average) {
+    if (average !== null) {
       logToLocalStorage();
     }
   }, [average]);
@@ -33,30 +39,25 @@ function EvaluatePage() {
       const endTime = performance.now();
       const duration = endTime - startTime;
 
-      const wordInfo = {
+      const wordInfo: WordInfo = {
         word: evalJSON[currentWordIndex],
         index: currentWordIndex,
         length: evalJSON[currentWordIndex].length,
         duration: duration,
       };
 
-      // Store word info
       setWordData((prevData) => [...prevData, wordInfo]);
 
-      // Reset start time for the next word
       setStartTime(null);
     }
 
-    // Increment current word index
     if (currentWordIndex < evalJSON.length - 1) {
       setCurrentWordIndex(currentWordIndex + 1);
     } else {
-      // Reset to the beginning if reached the end
       setCurrentWordIndex(0);
       setAllWordsClicked(true);
     }
 
-    // Set start time for the next word
     setStartTime(performance.now());
   };
 
@@ -71,7 +72,9 @@ function EvaluatePage() {
   };
 
   const logToLocalStorage = () => {
-    localStorage.setItem("duration-average", average);
+    if (average !== null) {
+      localStorage.setItem("duration-average", average.toString());
+    }
   };
 
   return (

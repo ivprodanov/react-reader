@@ -1,4 +1,4 @@
-export default [
+export const texts = [
     {
       "text": "The human mind is a complex system that processes information, interprets experiences, and generates thoughts and emotions. It is the seat of consciousness and the source of creativity, intelligence, and problem-solving abilities. Understanding the workings of the mind has been a central goal of psychology and neuroscience for centuries. Researchers have studied the brain's structure and function, explored cognitive processes such as perception, memory, and decision-making, and investigated the underlying mechanisms of mental disorders. Despite significant progress, many mysteries remain, and the study of the mind continues to be one of the most fascinating and challenging areas of scientific inquiry."
     },
