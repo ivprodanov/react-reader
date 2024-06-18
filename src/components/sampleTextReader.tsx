@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { texts } from "../assets/sample-texts";
+import texts from "../assets/sample-texts.json";
 
 interface SampleTextReaderProps {
   speed: number;
