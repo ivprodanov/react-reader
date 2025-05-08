@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { pdfjs, Document, Page } from "react-pdf";
+import { pdfjs, Document } from "react-pdf";
 import { useDropzone } from "react-dropzone";
 import { PDFDocumentProxy } from "pdfjs-dist";
 
@@ -11,11 +11,9 @@ type PDFReaderProps = {
 
 export const PDFReader: React.FC<PDFReaderProps> = ({ speed }) => {
   const [file, setFile] = useState<File | null>(null);
-  const [numPages, setNumPages] = useState<number>();
-  const [pageNumber, setPageNumber] = useState<number>(1);
+ 
   const [sentences, setSentences] = useState<string[]>([]);
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState<number>(0);
-  const [sentenceDuration, setSentenceDuration] = useState<number>(0);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.currentTarget.files;
@@ -70,7 +68,6 @@ export const PDFReader: React.FC<PDFReaderProps> = ({ speed }) => {
   
 
   async function onDocumentLoadSuccess(pdf: PDFDocumentProxy): Promise<void> {
-    setNumPages(pdf.numPages);
     const textByPage = await getTextFromPdf(pdf);
     const allSentences = textByPage.flat(); // Flatten into one long array
     setSentences(allSentences);
