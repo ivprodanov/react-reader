@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SampleTextReader from "../components/sampleTextReader";
+import { PDFReader } from "./PDFReader";
 
 const ReadPage: React.FC = () => {
   const [averageSpeed, setAverageSpeed] = useState<number | null>(null);
@@ -60,7 +61,9 @@ const ReadPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <SampleTextReader speed={adjustedSpeed !== null ? adjustedSpeed : 0} />
+          // <SampleTextReader speed={adjustedSpeed !== null ? adjustedSpeed : 0} />
+          <PDFReader speed={adjustedSpeed !== null ? adjustedSpeed : 0} />
+
         )
       ) : (
         !start ? (
